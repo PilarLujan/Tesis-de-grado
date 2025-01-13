@@ -66,7 +66,13 @@ qqline(DT, col = "red", lwd = 2)
 qqnorm(DR, main = "Gráfico Q-Q de Diámetro de raíz principal") 
 qqline(DR, col = "red", lwd = 2)
 
-# ANOVA de LR, DT, DR
+#Homogeneidad de la varianza test de BARTLETT
+
+bartlett.test(data$LR ~ data$id)
+bartlett.test(data$DT ~ data$id)
+bartlett.test(data$DR ~ data$id)
+
+# ANOVA de LR, DT, DR (Cumplen con normalidad y homogeneidad en varianza)
 
 anova_LR <- aov(LR ~ id, data = data)
 summary(anova_LR)
